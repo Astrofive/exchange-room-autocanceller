@@ -1,0 +1,25 @@
+
+Run every 5 minutes{
+    for each room{
+        if (meetingInProgress && roomNotOccupied){
+            new roomFlag{
+                roomID,
+                timestamp
+            }
+            if (room was flagged last 5 mins ago){
+                roomAbuseTrigger(roomID);
+            }
+        }
+
+    }
+}
+
+Function roomAbuseTrigger(roomID){
+    pull current reservation from Exchange API; //fetching userEmail
+    if (pingAdminFirst){
+        send emailtemplate to adminEmail with userEmail and roomID;
+    } else {
+        send emailTemplate to userEmail;
+    }
+}
+
